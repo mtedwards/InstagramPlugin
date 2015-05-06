@@ -2,6 +2,7 @@
   
   
   function mifp_load_scripts() {
+  wp_enqueue_script( 'waypoints', plugins_url( 'waypoints.min.js', __FILE__ ), array( 'jquery' ), '1.0' );
 	wp_enqueue_script( 'mifp-scripts', plugins_url( 'mifp.js', __FILE__ ), array( 'jquery' ), '1.0' );
 	
 	global $mifp_options;

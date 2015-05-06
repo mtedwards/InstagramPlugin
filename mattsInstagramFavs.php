@@ -4,7 +4,7 @@ Plugin Name: Matt's Instagram Favs Plugin
 Description: Display images an instagram account has favourited.
 Author: Matt Edwards
 Author URI: http://twitter.com/mtedwards
-Version: 0.1
+Version: 0.2
 */
 
 

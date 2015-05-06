@@ -1,5 +1,19 @@
 jQuery(document).ready(function( $ ) {
+
+
   $( ".loadMore" ).on( "click", "#loadMore", getNextInsta );
+  
+    
+    $('#loadMore').waypoint(function() {
+       var new_url = $(this).data('more');
+       retrieveInstagram(new_url);
+    }, {
+      container: 'auto',
+      continuous: true,
+      offset: 'bottom-in-view'
+    });
+
+  
     
     /*****************************/
     /******    FUNCTIONS   *******/
@@ -23,13 +37,17 @@ jQuery(document).ready(function( $ ) {
         url: new_url,
         success: function(data) {
           console.log(data);
+          
           // get the next URL
           var next_link = data.pagination.next_url;
           updateMoreLink(next_link);
-         
+ 
           // load the photos in
           var photos = data.data;
           addInstaPic(photos);  
+          
+          
+          
           }
         });
     };
@@ -52,5 +70,9 @@ jQuery(document).ready(function( $ ) {
       } else {
         $('.loadMore').html('<h5>You have reached the end of the photos.</h5>');
       }
-    };   
+    };
+    
+  
+       
 });
+
